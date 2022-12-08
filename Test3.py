@@ -14,50 +14,28 @@ def FlipInversion(inpA, inpB):
 def test_answer():
     #Test Case 1
     inpA = [1,0,1,0]
-    inpB = [0,1,1,0]
-    assert FlipInversion(inpA, inpB) == 2
+    expB = [0,1,1,0]
+    assert FlipInversion(inpA, expB) == 2
 
     #Test Case 2
     inpA = [1,0,1,0]
-    inpB = [0,0,1,1]
-    assert FlipInversion(inpA, inpB) == 2
+    expB = [0,0,1,1]
+    assert FlipInversion(inpA, expB) == 2
 
     #Test Case 3
     inpA = [1,0,1,0]
-    inpB = [0,1,1,1]
-    assert FlipInversion(inpA, inpB) == 3
+    expB = [0,1,1,1]
+    assert FlipInversion(inpA, expB) == 3
 
     #Test Case 4
-    inpA = [1,1,1,1]
-    inpB = [0,0,0,0]
-    assert FlipInversion(inpA, inpB) == 4
+    inpA = [0,1,0,1]
+    expB = [1,0,1,0]
+    assert FlipInversion(inpA, expB) == 4
 
     #Test Case 5
-    inpA = [1,1,0,0]
-    inpB = [0,0,0,0]
-    assert FlipInversion(inpA, inpB) == 2
+    inpA = [0,1,1,0]
+    expB = [0,1,0,1]
+    assert FlipInversion(inpA, expB) == 2
 
-    #Test Case 6
-    inpB = [1,1,1,1]
-    inpA = [0,0,0,0]
-    assert FlipInversion(inpA, inpB) == 4
 
-    #Test Case 7
-    inpA = [0,0,0,0]
-    inpB = [0,0,1,1]
-    assert FlipInversion(inpA, inpB) == 2
 
-    #Test Case 8
-    inpA = [1,1,1,0]
-    inpB = [0,0,0,1]
-    assert FlipInversion(inpA, inpB) == 4
-
-    #Test Case 9
-    inpA = [1,0,1,0]
-    inpB = [1,0,1,0]
-    assert FlipInversion(inpA, inpB) == 0
-
-    #Test Case 10
-    inpA = [1,1,0,0]
-    inpB = [0,0,1,1]
-    assert FlipInversion(inpA, inpB) == 4
