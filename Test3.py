@@ -37,5 +37,10 @@ def test_answer():
     expB = [0,1,0,1]
     assert FlipInversion(inpA, expB) == 2
 
+    #Test Case 6
+    inpA = [0,1,1,0]
+    expB = [0,1,1,0]
+    assert FlipInversion(inpA, expB) == 0
+
 
 
