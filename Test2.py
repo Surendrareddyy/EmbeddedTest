@@ -4,6 +4,8 @@ from pathlib import Path
 import shutil
 import math
 
+FILESIZEBYTES = int(14*math.pow(2,20))
+
 def findFileAttr(filepath):
     #IntializefileName to 0
     fileName = 0
@@ -17,7 +19,7 @@ def findFileAttr(filepath):
             sizeOfFile = (os.stat(filepath + "/" + file).st_size)
             
             # Check the logic and return the file that matches the conditions described in the test
-            if exePer is True and ownerName == "root" and sizeOfFile < int(14*math.pow(2,20)) :
+            if exePer is True and ownerName == "root" and sizeOfFile < FILESIZEBYTES ) :
                 fileName = file
     return fileName
 
@@ -48,7 +50,7 @@ def test_answer():
     file.close()
 
     #Test 3 : Create a file with 14680064 bytes, execute permission and owner name is same as user id
-    data = randbytes(int(14*math.pow(2,20)))
+    data = randbytes(FILESIZEBYTES)
     path = newDirectoryPath + "//FilewithExecPerand14680064bytes.txt"
     with open(path, "wb") as file:
        file.write(data)
@@ -57,7 +59,7 @@ def test_answer():
     file.close()
 
     #Test 4 : Create a file with 14680064 bytes, execute permission and owner name is root
-    data = randbytes(int(14*math.pow(2,20)))
+    data = randbytes(FILESIZEBYTES)
     path = newDirectoryPath + "//FilewithExact14680064bytes.txt"
     with open(path, "wb") as file:
         file.write(data)
@@ -68,7 +70,7 @@ def test_answer():
     file.close()
 
     #Test 5 : Create a file with 14680063 bytes, execute permission and owner name is root
-    data = randbytes((int(14*math.pow(2,20))- 1))
+    data = randbytes(FILESIZEBYTES - 1)
     path = newDirectoryPath + "//Filelessthanwith4680063bytes.txt"
     with open(path, "wb") as file:
         file.write(data)
@@ -78,9 +80,9 @@ def test_answer():
     os.chown(path,0,-1)
     file.close()
 
-    #Test 6 : Create a file with 14680063 bytes, execute permission and owner name is root
+    #Test 6 : Create a file with 14680065 bytes, execute permission and owner name is root
     path = newDirectoryPath + "//Filegreaterthan4680065bytes.txt"
-    data = randbytes((int(14*math.pow(2,20))+1))
+    data = randbytes(FILESIZEBYTES + 1)
     with open(path, "wb") as file:
         file.write(data)
     #Change the file execution permissions
